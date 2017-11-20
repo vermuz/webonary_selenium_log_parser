@@ -16,3 +16,4 @@ Site_with_an_error         Element link=Overview not found
 Test suite completed: 40 played, 1 failed
 
 Total time to completion: 0:10:40
+ 
