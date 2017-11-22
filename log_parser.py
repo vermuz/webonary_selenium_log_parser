@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+####################################################################
+# This script is designed to parse a Selenium IDE test log for the #
+# webonary.org site                                                #
+# version 1.1                                                      #
+####################################################################
 
 import argparse
 from datetime import datetime as dt
@@ -8,16 +13,16 @@ from datetime import datetime as dt
 parser = argparse.ArgumentParser(add_help=True)
 parser.add_argument('-i', '--inputfile', 
                     help='The logfile you want to parse',
-                    action="store", dest='input_file')
+                    dest='input_file')
 parser.add_argument('-o', '--outputfile', 
                     help='The file where you would like the output to go',
-                    action="store", dest='output_file')
+                    dest='output_file')
 args = parser.parse_args()
 
 
 if args.input_file is None:
     #<---Change default file location here--->
-    input_file = "/foo/bar/sampleLogFile.log" 
+    input_file = "/foo/bar/sampleLogFile.txt" 
 else:
     input_file = args.input_file
 
@@ -32,7 +37,7 @@ count = 0               # currently only marks the beginning of the loop to help
 
 # opens the filePath file as read only, the with method automatically closes the file at completion
 try:
-    with open(input_file, 'r') as log_file:
+    with open(input_file, 'r', encoding='utf8') as log_file:
         # begins looping through the file
         for line in log_file:
             # grabs the start time from the first line in the log file
